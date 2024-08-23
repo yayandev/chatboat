@@ -32,8 +32,9 @@ import {
 import { useAuth } from "../../../context/authContext";
 import * as ImagePicker from "expo-image-picker";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { ALERT_TYPE, Dialog, Toast } from "react-native-alert-notification";
+import { ALERT_TYPE, Toast } from "react-native-alert-notification";
 import { Audio } from "expo-av";
+import { findNodeHandle } from "react-native";
 
 // context reply chat
 import { createContext, useContext } from "react";
@@ -97,13 +98,6 @@ const Header = ({ friend, loading }) => {
             </>
           )}
         </View>
-        <TouchableOpacity
-          style={{
-            marginRight: 10,
-          }}
-        >
-          <Ionicons name="call" size={24} color="white" />
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -205,8 +199,6 @@ const MessageAudio = ({ url, duration }) => {
     </View>
   );
 };
-
-import { findNodeHandle } from "react-native";
 
 const MessageList = ({ id }) => {
   const [messages, setMessages] = useState([]);
